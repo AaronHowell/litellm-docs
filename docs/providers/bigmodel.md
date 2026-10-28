@@ -142,7 +142,7 @@ curl http://localhost:4000/v1/messages \
 
 The same deployment name serves all three routes. Each response contains the reply and native token usage. Keep the BigModel key on the gateway; clients use the LiteLLM key
 
-Codex sends `include` and `parallel_tool_calls` on Responses requests, and BigModel's Responses API documents neither. Add `drop_params: true` under `litellm_settings` so LiteLLM drops them. Without it, those requests return a 400 error
+Codex works through `/v1/responses` with no extra settings, since LiteLLM forwards the `include` and `parallel_tool_calls` fields it sends
 
 ## API Base
 
